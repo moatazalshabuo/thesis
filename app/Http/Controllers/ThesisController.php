@@ -63,7 +63,19 @@ class ThesisController extends Controller
             "order_staff" => (1),
             "status" => 0
         ]);
+
+        Supervision::create([
+            'thesis_id' => $thesis->id,
+            "staff_id" => $request->input('staff2'),
+            "order_staff" => (2),
+            "status" => 0
+        ]);
         User::find($request->input('staff1'))->notify(new Notifications([
+            'title' => "تم طلب الاشراف على اطروحة بعنوان $thesis->title_thesis",
+            "link" => route('staff.SupervisionRequests'), 'time' => date('Y-m-d H:i')
+        ]));
+
+        User::find($request->input('staff2'))->notify(new Notifications([
             'title' => "تم طلب الاشراف على اطروحة بعنوان $thesis->title_thesis",
             "link" => route('staff.SupervisionRequests'), 'time' => date('Y-m-d H:i')
         ]));
@@ -105,18 +117,29 @@ class ThesisController extends Controller
 
     public function indexAdmin()
     {
-        $theses = Thesis::where('status', 0)->paginate(15);
+        $theses = Thesis::where('status', 0)->get();
         return view('theses/index', compact('theses'));
     }
 
     public function indexFAdmin()
     {
-        $theses = Thesis::where('status', 2)->paginate(15);
+        $theses = Thesis::where('status', 2)->get();
         return view('theses/indexfull', compact('theses'));
+    }
+    public function indexNAdmin()
+    {
+        $theses = Thesis::where('status', 3)->get();
+        return view('theses/indexfull', compact('theses'));
+    }
+
+    public function StuTheses($id)
+    {
+        $theses = Thesis::where('students_id', $id)->get();
+        return view('theses.index', compact('theses'));
     }
     public function indexAAdmin()
     {
-        $theses = Thesis::where('status', 1)->paginate(15);
+        $theses = Thesis::where('status', 1)->get();
         return view('theses/index_active', compact('theses'));
     }
     public function showAdmin($id)

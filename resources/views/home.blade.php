@@ -144,7 +144,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الطلاب</p>
+                                    <a href="{{ route('students.index') }}" class="text-sm mb-0 text-capitalize font-weight-bold">عدد الطلاب</a>
                                     <h5 class="font-weight-bolder mb-0">
                                         {{ Helper::CountStudents() }}
                                         <span class="text-success text-sm font-weight-bolder">{{ Helper::CountStudents() }}</span>
@@ -166,7 +166,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد المشرفين</p>
+                                    <a href="{{ route('staffs.index') }}" class="text-sm mb-0 text-capitalize font-weight-bold">عدد المشرفين</a>
                                     <h5 class="font-weight-bolder mb-0">
                                         {{ Helper::CountStaff() }}
                                         <span class="text-success text-sm font-weight-bolder">{{ Helper::CountStaff() }}</span>
@@ -188,7 +188,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold"> عدد الاطروحات قيد العمل</p>
+                                    <a href="{{ route('theses.a.admin') }}" class="text-sm mb-0 text-capitalize font-weight-bold"> عدد الاطروحات قيد العمل</a>
                                     <h5 class="font-weight-bolder mb-0">
                                         {{ Helper::CountThesisW() }}
                                         <span class="text-danger text-sm font-weight-bolder">{{ Helper::CountThesisW() }}</span>
@@ -211,7 +211,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاطروحات المكتملة</p>
+                                    <a href="{{route('theses.f.admin')}}" class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاطروحات المكتملة</a>
                                     <h5 class="font-weight-bolder mb-0">
                                         {{ Helper::CountThesisF() }}
                                         <span class="text-success text-sm font-weight-bolder">{{ Helper::CountThesisF() }}</span>
@@ -233,7 +233,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold"> عدد الاطروحات تنتظر الموافقة</p>
+                                    <a href="{{ route('theses.index') }}" class="text-sm mb-0 text-capitalize font-weight-bold"> عدد الاطروحات تنتظر الموافقة</a>
                                     <h5 class="font-weight-bolder mb-0">
                                         {{ Helper::CountThesisN() }}
                                         <span class="text-danger text-sm font-weight-bolder">{{ Helper::CountThesisN() }}</span>
@@ -255,7 +255,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاطروحات المرفوضة</p>
+                                    <a href="{{ route('theses.n.admin') }}" class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاطروحات المرفوضة</a>
                                     <h5 class="font-weight-bolder mb-0">
                                         {{ Helper::CountThesisC() }}
                                         <span class="text-success text-sm font-weight-bolder">{{ Helper::CountThesisC() }}</span>
@@ -342,7 +342,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
+            <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="row">
@@ -363,7 +363,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4 mt-1">
                 <div class="card">
                     <div class="card-body p-3">

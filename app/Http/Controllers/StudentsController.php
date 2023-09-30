@@ -64,4 +64,10 @@ class StudentsController extends Controller
 
         return redirect('/students');
     }
+
+    public function profile($id){
+        $student = User::find($id);
+
+        return view('students/profile',compact('student'));
+    }
 }

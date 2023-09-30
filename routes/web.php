@@ -39,9 +39,11 @@ Route::controller(ThesisController::class)->group(function () {
         Route::get('admin/theses', 'indexAdmin')->name("theses.admin");
         Route::get('admin/f/theses', 'indexFAdmin')->name("theses.f.admin");
         Route::get('admin/a/theses', 'indexAAdmin')->name("theses.a.admin");
+        Route::get('admin/c/theses','indexNAdmin')->name('theses.n.admin');
         Route::get('admin/theses/{id}', 'showAdmin')->name("thesesShow.admin");
         Route::get('admin/theses/{id}/active', 'activeAdmin')->name("thesesactive.admin");
         Route::get('admin/theses/{id}/dsactive', 'dsactiveAdmin')->name("thesesdsactive.admin");
+        Route::get("admin/stu/theses/{id}","StuTheses")->name("stu.theses");
         // students urls
         Route::get('thesis/{id}', 'Thesis')->name("thesis.show");
 
@@ -70,5 +72,7 @@ Route::controller(StaffController::class)->group(function () {
         Route::get('st/{id}/supervision', 'SupervisionOwn')->name("st.supervision");
 
         Route::post('change/supervision', "changeSupervision1")->name("changeSupervision1");
+        // Route::post('change/supervision', "changeSupervision2")->name("changeSupervision2");
+        Route::get('profile-st/{id}',[StudentsController::class,"profile"])->name('profile.st');
     });
 });

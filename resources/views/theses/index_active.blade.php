@@ -20,6 +20,7 @@
                                 <th>العنوان باللغة العربية</th>
                                 <th>العنوان باللغة الانجليزية</th>
                                 <th>الطالب</th>
+                                <th>الحالة</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -31,6 +32,17 @@
                                     <td>{{ $item->en_title }}</td>
                                     <td>{{ $item->students->name }}</td>
                                     <td>
+                                        @if ($item->status == 0)
+                                            <span>في انتظار الموافقة</span>
+                                        @elseif($item->status == 1)
+                                            <span>قيد العمل</span>
+                                        @elseif($item->status == 2)
+                                            <span>مكتملة</span>
+                                        @elseif($item->status == 3)
+                                            <span>مرفوضة</span>
+                                        @endif
+                                    </td>
+                                    <td>
                                        <a href="{{ route('thesesShow.admin',$item->id) }}" class="btn btn-primary">عرض</a>
                                     </td>
                                 </tr>
@@ -38,7 +50,7 @@
                         </tbody>
                     </table>
                     <nav aria-label="Table Paging" class="mb-0 text-muted">
-                        {{ $theses->links() }}
+                      
                     </nav>
                 </div>
             </div>

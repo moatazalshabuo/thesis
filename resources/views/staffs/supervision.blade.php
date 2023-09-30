@@ -32,7 +32,7 @@
                                         <td></td>
                                         <td>{{ $item->thesis->title_thesis }}</td>
                                         <td>{{ $item->thesis->en_title }}</td>
-                                        <td>{{ Helper::username($item->thesis->students_id) }}</td>
+                                        <td><a href="{{ route('profile.st',$item->thesis->students_id) }}"> {{ Helper::username($item->thesis->students_id) }} </a></td>
                                         <td>
                                             @if ($item->thesis->status == 1)
                                                 <a href="{{ route('finish', $item->thesis->id) }}"

@@ -43,11 +43,11 @@
                                     </td>
                                     <td class="d-flex">
                                         <a href="{{ route('staffs.edit', $item->id) }}" class="text-white btn btn-warning"><i
-                                                class="fe fe-edit"></i></a>
+                                                class="fa fa-edit"></i></a>
                                         <form action="{{ route('staffs.destroy', $item->id) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button class="btn btn-danger"><i class="fe fe-trash"></i></button>
+                                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

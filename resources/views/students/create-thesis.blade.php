@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="form-group ">
+                                <div class="form-group ">
                                     <label for="inputState">اختار المشرف الثاني</label>
                                     <select id="inputState" name="staff2" required class="form-control">
                                         <option value="">Choose...</option>
@@ -80,7 +80,7 @@
                                     @error('staff2')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
-                                </div> --}}
+                                </div>
                                 <button type="submit" class="btn btn-primary">حفظ</button>
                             </form>
                         </div>

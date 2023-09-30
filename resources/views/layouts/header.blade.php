@@ -97,14 +97,14 @@
                             class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text me-1">اطروحاتي المقدمة</span>
+                        <span class="nav-link-text me-1">التعديل على الاطروحة</span>
                     </a>
                 </li>
                 @php
                     $thesis = Helper::Thesis();
                 @endphp
                 @isset($thesis->id)
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link " href="{{ route('thesis.show', $thesis->id) }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
@@ -112,14 +112,14 @@
                             </div>
                             <span class="nav-link-text me-1">{{ $thesis->title_thesis }}</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link " href="{{ route('st.supervision', $thesis->id) }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
                                 <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                             </div>
-                            <span class="nav-link-text me-1">ادارة المشرفين</span>
+                            <span class="nav-link-text me-1">تغيير المشرفين</span>
                         </a>
                     </li>
                 @endisset
