@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\MessageDiscussionController;
 use App\Http\Controllers\StaffController;
@@ -27,6 +28,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/noty', [App\Http\Controllers\HomeController::class, 'noty'])->name('noty');
 
 Route::resource("students", StudentsController::class)->middleware('auth');
 
@@ -74,5 +76,14 @@ Route::controller(StaffController::class)->group(function () {
         Route::post('change/supervision', "changeSupervision1")->name("changeSupervision1");
         // Route::post('change/supervision', "changeSupervision2")->name("changeSupervision2");
         Route::get('profile-st/{id}',[StudentsController::class,"profile"])->name('profile.st');
+    });
+});
+
+Route::controller(AdminController::class)->group(function(){
+    Route::middleware('auth')->group(function(){
+        Route::get('admin/create_thises','create_thesis')->name('admin.create_thesis');
+        Route::post('admin/store_thises','store_thesis')->name('admin.store_thesis');
+        Route::get('admin/cancel-thises','CancelThises')->name('admin.cancel_thesis');
+        Route::get("admin/stf/theses/{id}","StfTheses")->name("stf.theses");
     });
 });

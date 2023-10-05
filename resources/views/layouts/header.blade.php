@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse px-0 w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="/home">
+                <a class="nav-link " href="{{ route('home') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
@@ -22,15 +22,31 @@
                     <span class="nav-link-text me-1">الرئيسية</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('noty') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-bell text-primary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text me-1">الاشعارات</span>
+                </a>
+            </li>
             @if (auth()->user()->type_user == 1)
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 me-4 pe-2 text-uppercase text-xs font-weight-bolder opacity-6">الطلاب</h6>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link " href="{{ route('students.create') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-user text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">اضافة طالب</span>
+                    </a>
                     <a class="nav-link " href="{{ route('students.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                            <i class="fa fa-users text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text me-1">ادارة الطلاب</span>
                     </a>
@@ -39,16 +55,32 @@
                     <h6 class="ps-4 me-4 pe-2 text-uppercase text-xs font-weight-bolder opacity-6">اعضاء التدريس</h6>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link " href="{{ route('staffs.create') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fa fa-user text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">اضافة عضو التدريس</span>
+                    </a>
                     <a class="nav-link " href="{{ route('staffs.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+                            <i class="fa fa-users text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text me-1">اعضاء التدريس</span>
                     </a>
                 </li>
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 me-4 pe-2 text-uppercase text-xs font-weight-bolder opacity-6">ادارة الاطروحات</h6>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('admin.create_thesis') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-app text-info text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">اضافة اطروحة</span>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('theses.admin') }}">
@@ -75,6 +107,15 @@
                             <i class="ni ni-app text-info text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text me-1">اطروحات مكتملة</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('admin.cancel_thesis') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-app text-info text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">اطروحات المرفوضة</span>
                     </a>
                 </li>
             @endif

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('title')
     عرض اعضاء التدريس
 @endsection
@@ -31,7 +30,7 @@
                             @foreach ($staffs as $item)
                                 <tr>
                                     <td></td>
-                                    <td>{{ $item->name }}</td>
+                                    <td><a href="{{ route('stf.theses',$item->id) }}">{{ $item->name }}</a></td>
                                     <td>{{ $item->num_acadmi }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>

@@ -31,4 +31,9 @@ class HomeController extends Controller
         }
         return view('home',compact('thesis'));
     }
+
+    public function noty()
+    {
+        return view('notyfication');
+    }
 }

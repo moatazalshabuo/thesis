@@ -135,323 +135,365 @@
             </div>
         </div>
     @elseif(Auth::user()->type_user == 1)
-    <div class="row">
-        <div class="col-md-7">
         <div class="row">
-            <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <a href="{{ route('students.index') }}" class="text-sm mb-0 text-capitalize font-weight-bold">عدد الطلاب</a>
-                                    <h5 class="font-weight-bolder mb-0">
-                                        {{ Helper::CountStudents() }}
-                                        <span class="text-success text-sm font-weight-bolder">{{ Helper::CountStudents() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <a href="{{ route('staffs.index') }}" class="text-sm mb-0 text-capitalize font-weight-bold">عدد المشرفين</a>
-                                    <h5 class="font-weight-bolder mb-0">
-                                        {{ Helper::CountStaff() }}
-                                        <span class="text-success text-sm font-weight-bolder">{{ Helper::CountStaff() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 mb-lg-0 mt-1">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <a href="{{ route('theses.a.admin') }}" class="text-sm mb-0 text-capitalize font-weight-bold"> عدد الاطروحات قيد العمل</a>
-                                    <h5 class="font-weight-bolder mb-0">
-                                        {{ Helper::CountThesisW() }}
-                                        <span class="text-danger text-sm font-weight-bolder">{{ Helper::CountThesisW() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    {{-- <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i> --}}
-                                    <i class="fa-solid fa-retweet text-lg opacity-10"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 mt-1">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <a href="{{route('theses.f.admin')}}" class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاطروحات المكتملة</a>
-                                    <h5 class="font-weight-bolder mb-0">
-                                        {{ Helper::CountThesisF() }}
-                                        <span class="text-success text-sm font-weight-bolder">{{ Helper::CountThesisF() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 mb-lg-0 mt-1">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <a href="{{ route('theses.index') }}" class="text-sm mb-0 text-capitalize font-weight-bold"> عدد الاطروحات تنتظر الموافقة</a>
-                                    <h5 class="font-weight-bolder mb-0">
-                                        {{ Helper::CountThesisN() }}
-                                        <span class="text-danger text-sm font-weight-bolder">{{ Helper::CountThesisN() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 mt-1">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <a href="{{ route('theses.n.admin') }}" class="text-sm mb-0 text-capitalize font-weight-bold">عدد الاطروحات المرفوضة</a>
-                                    <h5 class="font-weight-bolder mb-0">
-                                        {{ Helper::CountThesisC() }}
-                                        <span class="text-success text-sm font-weight-bolder">{{ Helper::CountThesisC() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    {{-- <i class="ni ni-cancel text-lg opacity-10" aria-hidden="true"></i> --}}
-                                    <i class="fa-solid fa-ban text-lg opacity-10"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-5">
-            <div class="card h-100 mb-4">
-                <div class="card-header pb-0 px-3">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 class="mb-0">الاشعارات</h6>
-                        </div>
-                        <div class="col-md-6 d-flex justify-content-end align-items-center">
-                            <i class="far fa-calendar-alt me-2" aria-hidden="true"></i>
-                            <small>{{ date('Y-m-d') }}</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body pt-4 " style="height: 400px;overflow-y:scroll">
-                    <ul class="list-group p-0">
-                        @foreach (Auth::user()->Notifications as $item)
-                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-                                style="background-color:#f5f5f5">
-                                <a href="{{ $item->data['link'] }}" style="color: #8f8e8e">
-                                    <div class="d-flex align-items-start">
-                                        <button
-                                            class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
-                                                class="fas fa-arrow-down" aria-hidden="true"></i></button>
-                                        <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark text-sm mx-1"
-                                                style="color: rgb(68, 47, 255) !important">{{ $item->data['title'] }}
-                                            </h6>
-                                            <span class="text-xs">{{ $item->data['time'] }}</span>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
+                        <div class="card">
+                            <div class="card-body p-3">
+                                <a href="{{ route('students.index') }}"
+                                    class="text-sm mb-0 text-capitalize font-weight-bold">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                عدد الطلاب
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    {{ Helper::CountStudents() }}
+                                                    <span
+                                                        class="text-success text-sm font-weight-bolder">{{ Helper::CountStudents() }}</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-start">
+                                            <div
+                                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                    {{-- <div
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
+                        <div class="card">
+                            <div class="card-body p-3">
+                                <a href="{{ route('staffs.index') }}"
+                                    class="text-sm mb-0 text-capitalize font-weight-bold">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                عدد المشرفين
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    {{ Helper::CountStaff() }}
+                                                    <span
+                                                        class="text-success text-sm font-weight-bolder">{{ Helper::CountStaff() }}</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-start">
+                                            <div
+                                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mb-lg-0 mt-1">
+                        <div class="card">
+                            <div class="card-body p-3">
+                                <a href="{{ route('theses.a.admin') }}"
+                                    class="text-sm mb-0 text-capitalize font-weight-bold">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                عدد الاطروحات قيد
+                                                العمل
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    {{ Helper::CountThesisW() }}
+                                                    <span
+                                                        class="text-danger text-sm font-weight-bolder">{{ Helper::CountThesisW() }}</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-start">
+                                            <div
+                                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                {{-- <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i> --}}
+                                                <i class="fa-solid fa-retweet text-lg opacity-10"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mt-1">
+                        <div class="card">
+                            <div class="card-body p-3">
+
+                                <a href="{{ route('theses.f.admin') }}"
+                                    class="text-sm mb-0 text-capitalize font-weight-bold">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers"> عدد الاطروحات
+                                                المكتملة
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    {{ Helper::CountThesisF() }}
+                                                    <span
+                                                        class="text-success text-sm font-weight-bolder">{{ Helper::CountThesisF() }}</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-start">
+                                            <div
+                                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mb-lg-0 mt-1">
+                        <div class="card">
+                            <div class="card-body p-3">
+                                <a href="{{ route('theses.index') }}"
+                                    class="text-sm mb-0 text-capitalize font-weight-bold">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                عدد الاطروحات تنتظر
+                                                الموافقة
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    {{ Helper::CountThesisN() }}
+                                                    <span
+                                                        class="text-danger text-sm font-weight-bolder">{{ Helper::CountThesisN() }}</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-start">
+                                            <div
+                                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mt-1">
+                        <div class="card">
+                            <div class="card-body p-3">
+                                <a href="{{ route('theses.n.admin') }}"
+                                    class="text-sm mb-0 text-capitalize font-weight-bold">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                عدد الاطروحات
+                                                المرفوضة
+                                                <h5 class="font-weight-bolder mb-0">
+                                                    {{ Helper::CountThesisC() }}
+                                                    <span
+                                                        class="text-success text-sm font-weight-bolder">{{ Helper::CountThesisC() }}</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-start">
+                                            <div
+                                                class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                                {{-- <i class="ni ni-cancel text-lg opacity-10" aria-hidden="true"></i> --}}
+                                                <i class="fa-solid fa-ban text-lg opacity-10"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card h-100 mb-4">
+                    <div class="card-header pb-0 px-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="mb-0">الاشعارات</h6>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                <i class="far fa-calendar-alt me-2" aria-hidden="true"></i>
+                                <small>{{ date('Y-m-d') }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-4 " style="height: 400px;overflow-y:scroll">
+                        <ul class="list-group p-0">
+                            @foreach (Auth::user()->Notifications as $item)
+                                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
+                                    style="background-color:#f5f5f5">
+                                    <a href="{{ $item->data['link'] }}" style="color: #8f8e8e">
+                                        <div class="d-flex align-items-start">
+                                            <button
+                                                class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
+                                                    class="fas fa-arrow-down" aria-hidden="true"></i></button>
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-1 text-dark text-sm mx-1"
+                                                    style="color: rgb(68, 47, 255) !important">{{ $item->data['title'] }}
+                                                </h6>
+                                                <span class="text-xs">{{ $item->data['time'] }}</span>
+                                            </div>
+                                        </div>
+                                        {{-- <div
                                     class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
                                     - $ 2,500
                                 </div> --}}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     @elseif(Auth::user()->type_user == 2)
-    <div class="row">
-        <div class="col-md-7">
         <div class="row">
-            <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">مشرف اول</p>
-                                    <h5 class="font-weight-bolder mb-0">
-                                        عدد البحوث
-                                        <span class="text-success text-sm font-weight-bolder">{{Helper::CountS1() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">مشرف تاني في </p>
-                                    <h5 class="font-weight-bolder mb-0">
-                                        عدد البحوث
-                                        <span class="text-success text-sm font-weight-bolder">{{ Helper::CountS2() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4 mt-1">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">طلبات الاشراف</p>
-                                    <h5 class="font-weight-bolder mb-0">
-
-                                        <span class="text-danger text-sm font-weight-bolder">{{ Helper::CountSR() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-6 mt-1">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">البحوث المكتملة</p>
-                                    <h5 class="font-weight-bolder mb-0">
-
-                                        <span class="text-success text-sm font-weight-bolder">{{ Helper::CountSF() }}</span>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-4 text-start">
-                                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        </div>
-        <div class="col-md-5">
-            <div class="card h-100 mb-4">
-                <div class="card-header pb-0 px-3">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 class="mb-0">الاشعارات</h6>
-                        </div>
-                        <div class="col-md-6 d-flex justify-content-end align-items-center">
-                            <i class="far fa-calendar-alt me-2" aria-hidden="true"></i>
-                            <small>{{ date('Y-m-d') }}</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body pt-4 " style="height: 400px;overflow-y:scroll">
-                    <ul class="list-group p-0">
-                        @foreach (Auth::user()->Notifications as $item)
-                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
-                                style="background-color:#f5f5f5">
-                                <a href="{{ $item->data['link'] }}" style="color: #8f8e8e">
-                                    <div class="d-flex align-items-start">
-                                        <button
-                                            class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
-                                                class="fas fa-arrow-down" aria-hidden="true"></i></button>
-                                        <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark text-sm mx-1"
-                                                style="color: rgb(68, 47, 255) !important">{{ $item->data['title'] }}
-                                            </h6>
-                                            <span class="text-xs">{{ $item->data['time'] }}</span>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
+                        <div class="card">
+                            <div class="card-body p-3">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="numbers">
+                                            <p class="text-sm mb-0 text-capitalize font-weight-bold">مشرف اول</p>
+                                            <h5 class="font-weight-bolder mb-0">
+                                                عدد البحوث
+                                                <span
+                                                    class="text-success text-sm font-weight-bolder">{{ Helper::CountS1() }}</span>
+                                            </h5>
                                         </div>
                                     </div>
-                                    {{-- <div
+                                    <div class="col-4 text-start">
+                                        <div
+                                            class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                            <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4">
+                        <div class="card">
+                            <div class="card-body p-3">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="numbers">
+                                            <p class="text-sm mb-0 text-capitalize font-weight-bold">مشرف تاني في </p>
+                                            <h5 class="font-weight-bolder mb-0">
+                                                عدد البحوث
+                                                <span
+                                                    class="text-success text-sm font-weight-bolder">{{ Helper::CountS2() }}</span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-start">
+                                        <div
+                                            class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                            <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mb-lg-0 mb-4 mt-1">
+                        <div class="card">
+                            <div class="card-body p-3">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="numbers">
+                                            <p class="text-sm mb-0 text-capitalize font-weight-bold">طلبات الاشراف</p>
+                                            <h5 class="font-weight-bolder mb-0">
+
+                                                <span
+                                                    class="text-danger text-sm font-weight-bolder">{{ Helper::CountSR() }}</span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-start">
+                                        <div
+                                            class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                            <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mt-1">
+                        <div class="card">
+                            <div class="card-body p-3">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="numbers">
+                                            <p class="text-sm mb-0 text-capitalize font-weight-bold">البحوث المكتملة</p>
+                                            <h5 class="font-weight-bolder mb-0">
+
+                                                <span
+                                                    class="text-success text-sm font-weight-bolder">{{ Helper::CountSF() }}</span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-start">
+                                        <div
+                                            class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                            <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card h-100 mb-4">
+                    <div class="card-header pb-0 px-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="mb-0">الاشعارات</h6>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                <i class="far fa-calendar-alt me-2" aria-hidden="true"></i>
+                                <small>{{ date('Y-m-d') }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-4 " style="height: 400px;overflow-y:scroll">
+                        <ul class="list-group p-0">
+                            @foreach (Auth::user()->Notifications as $item)
+                                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg"
+                                    style="background-color:#f5f5f5">
+                                    <a href="{{ $item->data['link'] }}" style="color: #8f8e8e">
+                                        <div class="d-flex align-items-start">
+                                            <button
+                                                class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
+                                                    class="fas fa-arrow-down" aria-hidden="true"></i></button>
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-1 text-dark text-sm mx-1"
+                                                    style="color: rgb(68, 47, 255) !important">{{ $item->data['title'] }}
+                                                </h6>
+                                                <span class="text-xs">{{ $item->data['time'] }}</span>
+                                            </div>
+                                        </div>
+                                        {{-- <div
                                     class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
                                     - $ 2,500
                                 </div> --}}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     @endif
 @endsection
