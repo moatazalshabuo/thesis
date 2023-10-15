@@ -28,10 +28,10 @@ class AdminController extends Controller
             'en_title' => ['required'],
             'students' => ['required'],
             'staff1' => ['required'],
-            'staff2' => ['required','different:staff1']
+            'staff2' => ['different:staff1']
         ]);
 
-        
+
         $thesis = new Thesis();
         $thesis->students_id = $request->students;
         $thesis->title_thesis = $request->input('title_thesis');
@@ -52,35 +52,36 @@ class AdminController extends Controller
             "order_staff" => (1),
             "status" => 0
         ]);
-
-        Supervision::create([
-            'thesis_id' => $thesis->id,
-            "staff_id" => $request->input('staff2'),
-            "order_staff" => (2),
-            "status" => 0
-        ]);
+        if ($request->input('staff2'))
+            Supervision::create([
+                'thesis_id' => $thesis->id,
+                "staff_id" => $request->input('staff2'),
+                "order_staff" => (2),
+                "status" => 0
+            ]);
         User::find($request->input('staff1'))->notify(new Notifications([
             'title' => "تم طلب الاشراف على اطروحة بعنوان $thesis->title_thesis",
             "link" => route('staff.SupervisionRequests'), 'time' => date('Y-m-d H:i')
         ]));
+        if ($request->input('staff2'))
+            User::find($request->input('staff2'))->notify(new Notifications([
+                'title' => "تم طلب الاشراف على اطروحة بعنوان $thesis->title_thesis",
+                "link" => route('staff.SupervisionRequests'), 'time' => date('Y-m-d H:i')
+            ]));
 
-        User::find($request->input('staff2'))->notify(new Notifications([
-            'title' => "تم طلب الاشراف على اطروحة بعنوان $thesis->title_thesis",
-            "link" => route('staff.SupervisionRequests'), 'time' => date('Y-m-d H:i')
-        ]));
-
-        return redirect()->route('theses.admin')->with('success','تم الاضافة بنجاح');
+        return redirect()->route('theses.admin')->with('success', 'تم الاضافة بنجاح');
     }
 
-    public function CancelThises(){
-        $theses = Thesis::where('status',3)->get();
+    public function CancelThises()
+    {
+        $theses = Thesis::where('status', 3)->get();
 
-        return view('admin.thises_canceled',compact('theses'));
+        return view('admin.thises_canceled', compact('theses'));
     }
 
     public function StfTheses($id)
     {
-        $theses = Thesis::whereIn('id',Supervision::where('staff_id',$id)->pluck('thesis_id')->toarray())->get();
-        return view('admin.thises_canceled',compact('theses'));
+        $theses = Thesis::whereIn('id', Supervision::where('staff_id', $id)->pluck('thesis_id')->toarray())->get();
+        return view('admin.thises_canceled', compact('theses'));
     }
 }

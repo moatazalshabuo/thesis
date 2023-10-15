@@ -66,7 +66,7 @@
                             </div>
                             <div class="form-group ">
                                 <label for="inputState">اختار المشرف الثاني</label>
-                                <select id="inputState" name="staff2" required class="form-control">
+                                <select id="inputState" name="staff2" class="form-control">
                                     <option value="">Choose...</option>
                                     @foreach ($staff as $item)
                                         <option @selected(old('staff2') == $item->id) value="{{ $item->id }}">

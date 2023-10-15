@@ -5,7 +5,13 @@
 @endsection
 @section('content')
     <div class="row">
+        @php
+            $cont = 0;
+        @endphp
         @foreach ($supervision as $item)
+            @php
+                $cont++;
+            @endphp
             @if ($item->order_staff == 1)
                 <div class="col-md-6">
                     <div class="card">
@@ -72,7 +78,8 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">المشرف الاول</h5>
+                            <h5 class="card-title">المشرف الثاني</h5>
+                            <a href="{{ route('Supervision.delete', $item->id) }}" class="btn btn-danger">الغاء المشرف</a>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
@@ -131,5 +138,38 @@
                 </div>
             @endif
         @endforeach
+        @if (count($supervision) == 1)
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">المشرف الثاني</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-footer">
+                            <form action="{{ route('Supervision.create') }}" method="post">
+                                @csrf
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="inputState">اضافة مشرف ثاني</label>
+                                        <select id="inputState" name="staff" required class="form-control">
+                                            <option value="">Choose...</option>
+                                            @foreach ($staff as $val)
+                                                <option @selected(old('staff') == $val->id) value="{{ $val->id }}">
+                                                    {{ $val->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <input type="hidden" name="id_thesis" value="{{ $item->thesis_id }}">
+                                        @error('staff')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">حفظ</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 @endsection

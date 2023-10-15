@@ -28,7 +28,6 @@
                                             <p class=" mb-1">{{ $these->title_thesis }}</p>
                                         </div>
                                         <div class="col-4 col-md-auto offset-4 offset-md-0 my-2">
-                                            {{-- <a href="#!" class="btn btn-sm btn-secondary">Contact</a> --}}
                                         </div>
                                     </div>
                                 </div> <!-- / .card-body -->
@@ -115,6 +114,7 @@
                                         </div>
                                     </div> <!-- / .card-body -->
                                 @endif
+                                
                             </div>
                         </div>
                     </div>
@@ -173,6 +173,7 @@
                 </div>
                 <div class="card-header">
                     <h4 class="card-title">المشرفين</h4>
+                    <a href="{{ route('st.supervision',$these->id) }}" class="btn btn-sm btn-secondary">تغيير المشرفين</a>
                 </div>
                 <div class="card-body">
                     <div class="row">

@@ -13,6 +13,10 @@ class Helper
     {
         return User::find($id)->name;
     }
+    public static function thname($id)
+    {
+        return Thesis::find($id)->title_thesis;
+    }
     public static function user($id)
     {
         return User::find($id);

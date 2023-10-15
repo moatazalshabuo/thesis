@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\MessageDiscussionController;
+use App\Http\Controllers\SecreatRateController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\ThesisController;
@@ -72,7 +73,8 @@ Route::controller(StaffController::class)->group(function () {
         // student supervision
 
         Route::get('st/{id}/supervision', 'SupervisionOwn')->name("st.supervision");
-
+        Route::post('create/supervision','Supervision_create')->name('Supervision.create');
+        Route::get('delete/supervision/{id}','Supervision_delete')->name('Supervision.delete');
         Route::post('change/supervision', "changeSupervision1")->name("changeSupervision1");
         // Route::post('change/supervision', "changeSupervision2")->name("changeSupervision2");
         Route::get('profile-st/{id}',[StudentsController::class,"profile"])->name('profile.st');
@@ -87,3 +89,5 @@ Route::controller(AdminController::class)->group(function(){
         Route::get("admin/stf/theses/{id}","StfTheses")->name("stf.theses");
     });
 });
+
+Route::resource('secret',SecreatRateController::class)->middleware('auth');

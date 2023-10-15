@@ -80,6 +80,21 @@ class StaffController extends Controller
         return view("staffs/supervision", compact('thesis'));
     }
 
+    public function Supervision_create(Request $request)
+    {
+        Supervision::create([
+            'thesis_id' => $request->id_thesis,
+            "staff_id" => $request->input('staff'),
+            "order_staff" => (2),
+            "status" => 0
+        ]);
+        return redirect()->back();
+    }
+    public function Supervision_delete($id)
+    {
+        Supervision::find($id)->delete();
+        return redirect()->back();
+    }
     public function fSupervision()
     {
         $thesis = Supervision::with('thesis')->where(['staff_id' => Auth::id(), 'status' => 1])->get();
@@ -121,16 +136,17 @@ class StaffController extends Controller
     {
         $supervision = Supervision::where("thesis_id", $id)->orderBy("order_staff")->get();
 
-        $staff = User::whereNotIn('id',Supervision::where("thesis_id",$id)->pluck('staff_id'))->where('type_user',2)->get();
+        $staff = User::whereNotIn('id', Supervision::where("thesis_id", $id)->pluck('staff_id'))->where('type_user', 2)->get();
 
-        return view("students/supervision", compact('supervision','staff'));
+        return view("students/supervision", compact('supervision', 'staff'));
     }
 
-    public function changeSupervision1(Request $request){
+    public function changeSupervision1(Request $request)
+    {
         $su = Supervision::find($request->id_supervision);
         $su->update([
-            'staff_id'=>$request->staff,
-            'status'=>0
+            'staff_id' => $request->staff,
+            'status' => 0
         ]);
         $thesis = Thesis::find($su->thesis_id);
 
@@ -140,5 +156,4 @@ class StaffController extends Controller
         ]));
         return redirect()->back()->with('success', "تم تغيير مشرف بنجاح ");
     }
-    
 }

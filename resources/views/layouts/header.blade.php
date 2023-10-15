@@ -60,14 +60,14 @@
                             class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-user text-warning text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text me-1">اضافة عضو التدريس</span>
+                        <span class="nav-link-text me-1">اضافة عضو هيئة التدريس</span>
                     </a>
                     <a class="nav-link " href="{{ route('staffs.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-users text-success text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text me-1">اعضاء التدريس</span>
+                        <span class="nav-link-text me-1">اعضاء هيئة التدريس</span>
                     </a>
                 </li>
                 <li class="nav-item mt-3">
@@ -116,6 +116,27 @@
                             <i class="ni ni-app text-info text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text me-1">اطروحات المرفوضة</span>
+                    </a>
+                </li>
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 me-4 pe-2 text-uppercase text-xs font-weight-bolder opacity-6">التقييم السري</h6>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('secret.create') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-app text-info text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">تعيين مقيم سري </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('secret.index') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">قائمة التقييم السري</span>
                     </a>
                 </li>
             @endif
@@ -194,6 +215,15 @@
                             <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text me-1">طلبات الاشراف</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('secret.index') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">قائمة التقييم السري</span>
                     </a>
                 </li>
             @endif

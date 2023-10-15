@@ -63,22 +63,25 @@ class ThesisController extends Controller
             "order_staff" => (1),
             "status" => 0
         ]);
+        if ($request->input('staff2')) {
+            Supervision::create([
+                'thesis_id' => $thesis->id,
+                "staff_id" => $request->input('staff2'),
+                "order_staff" => (2),
+                "status" => 0
+            ]);
+            User::find($request->input('staff2'))->notify(new Notifications([
+                'title' => "تم طلب الاشراف على اطروحة بعنوان $thesis->title_thesis",
+                "link" => route('staff.SupervisionRequests'), 'time' => date('Y-m-d H:i')
+            ]));
+        }
 
-        Supervision::create([
-            'thesis_id' => $thesis->id,
-            "staff_id" => $request->input('staff2'),
-            "order_staff" => (2),
-            "status" => 0
-        ]);
         User::find($request->input('staff1'))->notify(new Notifications([
             'title' => "تم طلب الاشراف على اطروحة بعنوان $thesis->title_thesis",
             "link" => route('staff.SupervisionRequests'), 'time' => date('Y-m-d H:i')
         ]));
 
-        User::find($request->input('staff2'))->notify(new Notifications([
-            'title' => "تم طلب الاشراف على اطروحة بعنوان $thesis->title_thesis",
-            "link" => route('staff.SupervisionRequests'), 'time' => date('Y-m-d H:i')
-        ]));
+
 
         return redirect()->route('theses.index')->with('success', ' تمت الاضافة في انتظار موافقة المشرفين');
     }
@@ -188,9 +191,15 @@ class ThesisController extends Controller
     {
         // print_r(Thesis::find($request->id));die();
         $t = Thesis::find($request->id);
+        
         $t->update([
             'rate1' => $request->rate
         ]);
+        if($request->rate == 100){
+            $t->update([
+                'status'=>2
+            ]);
+        }
         return redirect()->back()->with("success", "تم التقييم بنجاح");
     }
     public function rate2(Request $request)

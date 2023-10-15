@@ -5,16 +5,16 @@
 @section('content')
     <div class="row">
         <!-- Small table -->
-        @isset ($thesis->id)
+        @isset($thesis->id)
             <div class="card border-danger mb-3 w-50 text-center mx-auto" style="">
                 <div class="card-header"><i class="fa-solid fa-circle-info text-primary" style="font-size: 80px"></i></div>
                 <div class="card-body text-scundarry">
                     <h5 class="card-title">لقد قمت باضافة اطروحة مسبقا </h5>
                     <p class="card-text">
-                        لقد قمت باضافة اطروحة مسبقا {{$thesis->title_thesis}} والاطروحة الان في حالة @if ($thesis->status == 0)
-                        انتظار الموافقة
+                        لقد قمت باضافة اطروحة مسبقا {{ $thesis->title_thesis }} والاطروحة الان في حالة @if ($thesis->status == 0)
+                            انتظار الموافقة
                         @else
-                        قيد العمل
+                            قيد العمل
                         @endif
                         يمكنك تعديل المشروف او العنوان من الاماكن المخصصه لها .
                     </p>
@@ -34,8 +34,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="inputEmail4">عنوان الاطروحة باللغة العربية</label>
-                                        <input type="text"
-                                            class="form-control @error('title_thesis') is-invalid @enderror"
+                                        <input type="text" class="form-control @error('title_thesis') is-invalid @enderror"
                                             name="title_thesis" value="{{ old('title_thesis') }}" id="inputEmail4">
                                     </div>
                                     @error('title_thesis')
@@ -69,7 +68,7 @@
 
                                 <div class="form-group ">
                                     <label for="inputState">اختار المشرف الثاني</label>
-                                    <select id="inputState" name="staff2" required class="form-control">
+                                    <select id="inputState" name="staff2" class="form-control">
                                         <option value="">Choose...</option>
                                         @foreach ($staff as $item)
                                             <option @selected(old('staff2') == $item->id) value="{{ $item->id }}">
