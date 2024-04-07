@@ -20,35 +20,45 @@
 
                                 <th></th>
                                 <th>الاسم</th>
-                                <th>الرقم الاكاديمي</th>
-                                <th>البريد الالكتروني</th>
-                                <th>الحالة</th>
-                                <th>التحكم</th>
+                                @if (auth()->user()->type_user == 1)
+                                    <th>الرقم الاكاديمي</th>
+                                    <th>البريد الالكتروني</th>
+                                    <th>الحالة</th>
+                                @endif
+                                <th>السيرة الذاتية</th>
+                                @if (auth()->user()->type_user == 1)
+                                    <th>التحكم</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($staffs as $item)
                                 <tr>
                                     <td></td>
-                                    <td><a href="{{ route('stf.theses',$item->id) }}">{{ $item->name }}</a></td>
-                                    <td>{{ $item->num_acadmi }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>
-                                        @if ($item->status)
-                                            <span>مفعل</span>
-                                        @else
-                                            <span>غير مفعل</span>
-                                        @endif
-                                    </td>
-                                    <td class="d-flex">
-                                        <a href="{{ route('staffs.edit', $item->id) }}" class="text-white btn btn-warning"><i
-                                                class="fa fa-edit"></i></a>
-                                        <form action="{{ route('staffs.destroy', $item->id) }}" method="POST">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                        </form>
-                                    </td>
+                                    <td><a href="{{ route('stf.theses', $item->id) }}">{{ $item->name }}</a></td>
+                                    @if (auth()->user()->type_user == 1)
+                                        <td>{{ $item->num_acadmi }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>
+                                            @if ($item->status)
+                                                <span>مفعل</span>
+                                            @else
+                                                <span>غير مفعل</span>
+                                            @endif
+                                        </td>
+                                    @endif
+                                    <td><a class="btn btn-primary m-3" href="{{ URL::asset($item->cv) }}">عرض </a></td>
+                                    @if (auth()->user()->type_user == 1)
+                                        <td class="d-flex">
+                                            <a href="{{ route('staffs.edit', $item->id) }}"
+                                                class="text-white btn btn-warning"><i class="fa fa-edit"></i></a>
+                                            <form action="{{ route('staffs.destroy', $item->id) }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            </form>
+                                        </td>
+                                    @endif
                                 </tr>
                             @endforeach
                         </tbody>

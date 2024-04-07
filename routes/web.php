@@ -30,7 +30,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/noty', [App\Http\Controllers\HomeController::class, 'noty'])->name('noty');
-
+Route::get('/archive',[App\Http\Controllers\HomeController::class,'archive'])->name('archive')->middleware('auth');
 Route::resource("students", StudentsController::class)->middleware('auth');
 
 Route::resource('staffs', StaffController::class)->middleware('auth');

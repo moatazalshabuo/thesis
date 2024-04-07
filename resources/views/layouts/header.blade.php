@@ -6,8 +6,8 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html "
             target="_blank">
-            <img src="{{ asset('assets//img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="me-1 font-weight-bold">Argon Dashboard 2</span>
+            <img src="{{ asset('assets/img/logo.png') }}" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="me-1 font-weight-bold">نظام تسجيل الاطروحات</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -139,6 +139,15 @@
                         <span class="nav-link-text me-1">قائمة التقييم السري</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('secret.index') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">الارشيف</span>
+                    </a>
+                </li>
             @endif
             @if (auth()->user()->type_user == 3)
                 <li class="nav-item mt-3">
@@ -152,6 +161,15 @@
                         </div>
                         <span class="nav-link-text me-1">التقدم باطروحة</span>
                     </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link " href="{{ route('staffs.index') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-users text-success text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text me-1">اعضاء هيئة التدريس</span>
+                </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('theses.index') }}">
@@ -175,6 +193,7 @@
                             <span class="nav-link-text me-1">{{ $thesis->title_thesis }}</span>
                         </a>
                     </li> --}}
+                    
                     <li class="nav-item">
                         <a class="nav-link " href="{{ route('st.supervision', $thesis->id) }}">
                             <div

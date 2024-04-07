@@ -26,7 +26,7 @@
                                                         <i class="fa-regular fa-circle-check"></i>الاطروحة مكتملة
                                                     @endif
                                                 </span>
-                                                <p class="mb-1 pt-2 text-bold">{{ $thesis->title_thesis }}</p>
+                                                <p class="mb-1 pt-2 text-bold w-50">{{ $thesis->title_thesis }}</p>
 
                                                 <h5 class="font-weight-bolder">{{ $thesis->en_title }}</h5>
                                                 <p class="mb-5">{{ $thesis->descripe }}</p>

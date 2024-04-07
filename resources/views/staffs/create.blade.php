@@ -11,7 +11,7 @@
             <div class="card shadow">
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('staffs.store') }}">
+                    <form method="POST" action="{{ route('staffs.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-row">
@@ -32,7 +32,7 @@
                                 <input id="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror" name="email"
                                     value="{{ old('email') }}" required autocomplete="email">
-                                    <input type="hidden" name="type_user" value="2">
+                                <input type="hidden" name="type_user" value="2">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -86,6 +86,13 @@
                                     <li>At least one number</li>
                                     <li>Can’t be the same as a previous password </li>
                                 </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class='form-group'>
+                                    <label>السيرة الذاتية</label>
+                                    <input type="file" class="form-control" accept="application/pdf" name="cv"
+                                        required>
+                                </div>
                             </div>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">حفظ</button>

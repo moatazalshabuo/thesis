@@ -16,6 +16,7 @@ class Thesis extends Model
         'rate2',
         'descripe',
         'file',
+        'created_at'
     ];
 
     public function students()

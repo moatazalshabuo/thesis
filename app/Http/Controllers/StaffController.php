@@ -36,9 +36,17 @@ class StaffController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'num_acadmi' => 'required|integer',
             'type_user' => 'required|integer',
+            'cv'=>'required'
         ]);
+        if ($request->hasFile('cv')) {
+            $file = $request->file('cv');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
 
-        User::create($data);
+            $file->move(public_path('files'), $filename);
+
+            $data['cv'] = 'files/' . $filename;
+        }
+        $user = User::create($data);
 
         return redirect('/staffs');
     }
@@ -59,7 +67,14 @@ class StaffController extends Controller
             'email' => 'required|email|unique:users,email,' . $id,
             'num_acadmi' => 'required|integer',
         ]);
+        if ($request->hasFile('cv')) {
+            $file = $request->file('cv');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
 
+            $file->move(public_path('files'), $filename);
+
+            $data['cv'] = 'files/' . $filename;
+        }
         $user = User::findOrFail($id);
         $user->update($data);
 

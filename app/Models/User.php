@@ -23,7 +23,8 @@ class User extends Authenticatable
         'password',
         "type_user",
         "status",
-        "num_acadmi"
+        "num_acadmi",
+        'cv'
     ];
 
 

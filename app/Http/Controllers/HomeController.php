@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Thesis;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -35,5 +36,26 @@ class HomeController extends Controller
     public function noty()
     {
         return view('notyfication');
+    }
+
+    public function archive(Request $request)
+    {
+        $student = User::where('type_user',3)->get();
+        $superviser = User::where('type_user',2)->get();
+        $query = Thesis::query();
+        if (isset($_GET['student'])) {
+            $query->where('students_id',$_GET['student']);
+        }
+        if(isset($_GET['superviser'])){
+            $query->where('rate1',$_GET['superviser'])->orWhere('rate1',$_GET['superviser']);
+        }
+        
+        if(!empty($_GET)){
+            $thesis = $query->get();
+        }else{
+            $thesis = [];
+        }
+        
+        return view('archive',compact('student','superviser','thesis'));
     }
 }

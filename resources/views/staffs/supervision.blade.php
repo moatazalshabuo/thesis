@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    الطروحات
+    الاطروحات
 @endsection
 @section('content')
     <div class="row">
@@ -23,6 +23,7 @@
                                 <th>العنوان باللغة الانجليزية</th>
                                 <th>الطالب</th>
                                 <th>الحالة</th>
+                                <th>تحكم</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,6 +34,19 @@
                                         <td>{{ $item->thesis->title_thesis }}</td>
                                         <td>{{ $item->thesis->en_title }}</td>
                                         <td><a href="{{ route('profile.st',$item->thesis->students_id) }}"> {{ Helper::username($item->thesis->students_id) }} </a></td>
+                                        <td>
+                                            <span >
+                                                @if ($item->thesis->status == 1)
+                                                    <i class="fa-solid fa-circle text-success"></i>
+                                                    قيد العمل
+                                                @elseif($item->thesis->status == 0)
+                                                    <i class="fa-solid fa-circle text-danger"></i>
+                                                    في انتظار الموافقة
+                                                @elseif($item->thesis->status == 2)
+                                                    <i class="fa-regular fa-circle-check"></i>الاطروحة مكتملة
+                                                @endif
+                                            </span>
+                                        </td>
                                         <td>
                                             @if ($item->thesis->status == 1)
                                                 <a href="{{ route('finish', $item->thesis->id) }}"

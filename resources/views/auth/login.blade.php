@@ -19,7 +19,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
     <title>
         تسجيل الدخول
     </title>
@@ -32,10 +32,13 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js')}}" crossorigin="anonymous"></script>
     <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap" rel="stylesheet">
     <link id="pagestyle" href="{{ asset('assets/css/argon-dashboard.css') }}" rel="stylesheet" />
 </head>
 
-<body class="">
+<body class="" >
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
 
@@ -44,19 +47,19 @@
     <main class="main-content  mt-0">
         <section>
             <div class="page-header min-vh-100">
-                <div class="container">
+                <div class="container" dir="rtl">
                     <div class="row">
-                        <div class="col-xl-12 d-flex flex-column mx-lg-0 mx-auto">
+                        <div class="col-md-5 d-flex flex-column mx-lg-0 mx-auto">
                             <div class="card card-plain">
 
-                                <div class="card-body">
-                                    <form class="col-lg-3 col-md-4 col-10 mx-auto text-center" method="POST"
+                                <div class="card-body" >
+                                    <form class=" col-10 mx-auto text-rigth" method="POST"
                                         action="{{ route('login') }}">
                                         @csrf
                                         <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
 
                                         </a>
-                                        <h1 class="h6 mb-3">تسجيل الدخول</h1>
+                                        <h1 class="h2 mb-3">نظام الادارة الالكترونية لتوثيق اطروحات الدراسات العليا</h1>
                                         <div class="form-group">
                                             <label for="inputEmail" class="sr-only">البريد الالكتروني</label>
                                             <input type="email" id="inputEmail"
@@ -88,8 +91,8 @@
 
                             </div>
                         </div>
-
                     </div>
+                    <div class="col-md-6" style="background-image: url({{asset('assets/img/logo.png')}});min-height:500px;background-repeat: no-repeat;"></div>
                 </div>
             </div>
         </section>
